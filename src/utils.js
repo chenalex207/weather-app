@@ -18,8 +18,8 @@ export const availableLocations = [
   },
   {
     cityName: '雲林縣',
-    locationName: '雲林',
-    sunriseCityName: '屏東縣',
+    locationName: '雲林東勢',
+    sunriseCityName: '雲林縣',
   },
   {
     cityName: '臺東縣',
@@ -63,7 +63,7 @@ export const availableLocations = [
   },
   {
     cityName: '臺南市',
-    locationName: '南區中心',
+    locationName: '臺南',
     sunriseCityName: '臺南市',
   },
   {
@@ -89,7 +89,7 @@ export const availableLocations = [
   {
     cityName: '連江縣',
     locationName: '馬祖',
-    sunriseCityName: '馬祖',
+    sunriseCityName: '連江縣',
   },
   {
     cityName: '澎湖縣',
@@ -98,7 +98,7 @@ export const availableLocations = [
   },
   {
     cityName: '新北市',
-    locationName: '板橋',
+    locationName: '新北',
     sunriseCityName: '新北市',
   },
 ];
