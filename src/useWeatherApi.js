@@ -7,7 +7,7 @@ import { useState, useEffect, useCallback } from 'react';
 const fetchCurrentWeather = (locationName) => {
   // STEP 6-2：在 API 的網址中可以帶入 locationName 去撈取特定地區的天氣資料
   return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-CFDF1608-3C22-4F6A-84C0-588F111DD420&locationName=${locationName}`
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0003-001?Authorization=CWB-CFDF1608-3C22-4F6A-84C0-588F111DD420&locationName=${locationName}`
   )
     .then((response) => response.json())
     .then((data) => {
