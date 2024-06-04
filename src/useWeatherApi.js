@@ -40,7 +40,7 @@ const fetchCurrentWeather = (locationName) => {
 const fetchWeatherForecast = (cityName) => {
   // STEP 7-2：在 API 的網址中可以帶入 cityName 去撈取特定地區的天氣資料
   return fetch(
-    `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-CFDF1608-3C22-4F6A-84C0-588F111DD420&locationName=${cityName}`
+    `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-CFDF1608-3C22-4F6A-84C0-588F111DD420&locationName=${cityName}`
   )
     .then((response) => response.json())
     .then((data) => {
