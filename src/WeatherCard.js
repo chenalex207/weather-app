@@ -1,7 +1,8 @@
 // ./src/WeatherCard.js
 
 import React from 'react';
-import styled from "styled-components";
+import styled from '@emotion/styled';
+//import styled from "styled-components";
 import WeatherIcon from "./WeatherIcon.js";
 import { ReactComponent as AirFlowIcon } from "./images/airFlow.svg";
 import { ReactComponent as RainIcon } from "./images/rain.svg";
@@ -29,6 +30,7 @@ const WeatherCardWrapper = styled.div`
   box-sizing: border-box;
   padding: 30px 15px;
 `;
+
 
 const Location = styled.div`
   /*${(props) => console.log(props)}*/

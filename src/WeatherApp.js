@@ -1,8 +1,11 @@
 // STEP 1：載入 useEffect
 import React, { useState, useEffect, useMemo } from "react";
-import styled from "styled-components";
+//import styled from "styled-components";
+import styled from '@emotion/styled';
 import WeatherCard from './WeatherCard';
-import { ThemeProvider } from 'styled-components';
+//import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@emotion/react';
+//import { ThemeProvider } from 'emotion-theming'
 import sunriseAndSunsetData from "./sunrise-sunset.json";
 
 // STEP 1：載入 useWeatherApi Hook
@@ -10,15 +13,35 @@ import useWeatherApi from './useWeatherApi';
 
 // STEP 1：匯入 WeatherSetting
 import WeatherSetting from './WeatherSetting';
-//import WeatherSetting2 from './WeatherSetting2';
-//import RefExample from './RefExample';
+
 
 // STEP 2：匯入剛剛定義好的 findLocation 方法
 import { findLocation } from './utils';
 
+// STEP 1：定義主題配色
+const theme = {
+  light: {
+    backgroundColor: '#ededed',
+    foregroundColor: '#f9f9f9',
+    boxShadow: '0 1px 3px 0 #999999',
+    titleColor: '#212121',
+    temperatureColor: '#757575',
+    textColor: '#828282',
+  },
+  dark: {
+    backgroundColor: '#1F2022',
+    foregroundColor: '#121416',
+    boxShadow:
+      '0 1px 4px 0 rgba(12, 12, 13, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.15)',
+    titleColor: '#f9f9fa',
+    temperatureColor: '#dddddd',
+    textColor: '#cccccc',
+  },
+};
+
 const Container = styled.div`
   /* STEP 3：在 Styled Component 中可以透過 Props 取得對的顏色 */
-  ${(props) => console.log("theme : ", props.theme)}
+    ${({ theme }) => {console.log('theme.backgroundColor: ', theme.backgroundColor);}};
   background-color: ${({ theme }) => theme.backgroundColor};
   height: 100%;
   display: flex;
@@ -28,10 +51,11 @@ const Container = styled.div`
 
 
 const getMoment = (locationName) => {
+  const dataSet = sunriseAndSunsetData.records.locations.location;
   //console.log('sunriseAndSunsetData is : ', sunriseAndSunsetData);
   // STEP 2：從日出日落時間中找出符合的地區
-  const location = sunriseAndSunsetData.find(
-    (data) => data.locationName === locationName //data.locationName === locationName 
+  const location = dataSet.find(
+    (data) => data.CountyName === locationName //data.locationName === locationName 
   );
 
   //console.log("data.location is : ", location);
@@ -53,19 +77,19 @@ const getMoment = (locationName) => {
 
   // STEP 6：從該地區中找到對應的日期
   const locationDate =
-    location.time && location.time.find((time) => time.dataTime === nowDate);
+    location.time && location.time.find((time) => time.Date === nowDate);
   
   console.log("dataDate is : ", locationDate);
 
   // STEP 7：將日出日落以及當前時間轉成時間戳記（TimeStamp）
   const sunriseTimestamp = new Date(
-    `${locationDate.dataTime} ${locationDate.sunrise}`
+    `${locationDate.Date} ${locationDate.SunRiseTime}`
   ).getTime();
 
-  console.log("sunriseTimestamp is : ", sunriseTimestamp);
+  console.log("sunriseTimestamp is : ", sunriseTimestamp); 
 
   const sunsetTimestamp = new Date(
-    `${locationDate.dataTime} ${locationDate.sunset}`
+    `${locationDate.Date} ${locationDate.SunSetTime}`
   ).getTime();
 
 
@@ -113,36 +137,11 @@ const WeatherApp = () => {
 // STEP 8：現在可以使用 currentLocation 取得地區名稱，因此移除這個多餘的程式碼
 //const { locationName, } = weatherElement;
 
-// STEP 1：定義主題配色
-const theme = {
-  light: {
-    backgroundColor: '#ededed',
-    foregroundColor: '#f9f9f9',
-    boxShadow: '0 1px 3px 0 #999999',
-    titleColor: '#212121',
-    temperatureColor: '#757575',
-    textColor: '#828282',
-  },
-  dark: {
-    backgroundColor: '#1F2022',
-    foregroundColor: '#121416',
-    boxShadow:
-      '0 1px 4px 0 rgba(12, 12, 13, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.15)',
-    titleColor: '#f9f9fa',
-    temperatureColor: '#dddddd',
-    textColor: '#cccccc',
-  },
-};
-
   // STEP 3：透過 useMemo 避免每次都須重新計算取值，記得帶入 dependencies
   //const moment = useMemo(() => getMoment(locationName), [locationName]);
   
   // STEP 4：根據日出日落資料的地區名稱，找出對應的日出日落時間
-  const moment = useMemo(() => getMoment(currentLocation.sunriseCityName), [currentLocation.sunriseCityName]);
-
-  //const moment = getMoment(weatherElement.locationName);
-  //const moment = useMemo(() => {getMoment(weatherElement.locationName);}, []);
-  //const moment = useMemo(getMoment(weatherElement.locationName), []);
+  const moment = useMemo(() => getMoment(currentLocation.CountyName), [currentLocation.CountyName]);
 
   console.log("locationName is : ", weatherElement.locationName);
 
@@ -175,20 +174,19 @@ const theme = {
           />
         )}
 
-        {currentPage === 'WeatherSetting' && 
+        {currentPage === 'WeatherSetting' && (
           <WeatherSetting 
-
-          // STEP 6：把縣市名稱傳入 WeatherSetting 中當作表單「地區」欄位的預設值
+		  // STEP 6：把縣市名稱傳入 WeatherSetting 中當作表單「地區」欄位的預設值
           cityName={currentLocation.cityName}
-
           // STEP 7：把 setCurrentCity 傳入，讓 WeatherSetting 可以修改 currentCity
-            setCurrentCity={setCurrentCity}
-
-          setCurrentPage={setCurrentPage} />}
-     {/*<RefExample />*/}
+          setCurrentCity={setCurrentCity}
+          setCurrentPage={setCurrentPage} />
+		  )}
+     
     </Container>
+	</ThemeProvider>
     
-  </ThemeProvider>
+  
   );
 };
 

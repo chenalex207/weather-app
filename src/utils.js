@@ -3,103 +3,113 @@
 export const availableLocations = [
   {
     cityName: '宜蘭縣',
-    locationName: '宜蘭',
-    sunriseCityName: '宜蘭縣',
-  },
-  {
-    cityName: '嘉義市',
-    locationName: '嘉義',
-    sunriseCityName: '嘉義市',
-  },
-  {
-    cityName: '屏東縣',
-    locationName: '恆春',
-    sunriseCityName: '屏東縣',
-  },
-  {
-    cityName: '雲林縣',
-    locationName: '雲林東勢',
-    sunriseCityName: '雲林縣',
-  },
-  {
-    cityName: '臺東縣',
-    locationName: '臺東',
-    sunriseCityName: '臺東縣',
-  },
-  {
-    cityName: '臺北市',
-    locationName: '臺北',
-    sunriseCityName: '臺北市',
-  },
-  {
-    cityName: '金門縣',
-    locationName: '金門',
-    sunriseCityName: '金門縣',
-  },
-  {
-    cityName: '桃園市',
-    locationName: '新屋',
-    sunriseCityName: '桃園市',
-  },
-  {
-    cityName: '彰化縣',
-    locationName: '彰師大',
-    sunriseCityName: '彰化縣',
-  },
-  {
-     cityName: '嘉義縣',
-     locationName: '阿里山',
-     sunriseCityName: '嘉義縣',
-   },
-  {
-    cityName: '高雄市',
-    locationName: '高雄',
-    sunriseCityName: '高雄市',
-  },
-  {
-    cityName: '基隆市',
-    locationName: '基隆',
-    sunriseCityName: '基隆市',
-  },
-  {
-    cityName: '臺南市',
-    locationName: '臺南',
-    sunriseCityName: '臺南市',
-  },
-  {
-    cityName: '南投縣',
-    locationName: '日月潭',
-    sunriseCityName: '南投縣',
-  },
-  {
-    cityName: '臺中市',
-    locationName: '臺中',
-    sunriseCityName: '臺中市',
-  },
-  {
-    cityName: '新竹縣',
-    locationName: '新竹',
-    sunriseCityName: '新竹縣',
+    StationName: '宜蘭',
+    CountyName: '宜蘭縣',
   },
   {
     cityName: '花蓮縣',
-    locationName: '花蓮',
-    sunriseCityName: '花蓮縣',
+    StationName: '花蓮',
+    CountyName: '花蓮縣',
   },
   {
-    cityName: '連江縣',
-    locationName: '馬祖',
-    sunriseCityName: '連江縣',
+    cityName: '臺東縣',
+    StationName: '臺東',
+    CountyName: '臺東縣',
   },
   {
     cityName: '澎湖縣',
-    locationName: '澎湖',
-    sunriseCityName: '澎湖縣',
+    StationName: '澎湖',
+    CountyName: '澎湖縣',
+  },
+  {
+    cityName: '金門縣',
+    StationName: '金門',
+    CountyName: '金門縣',
+  },
+  {
+    cityName: '連江縣',
+    StationName: '馬祖',
+    CountyName: '連江縣',
+  },
+  {
+    cityName: '臺北市',
+    StationName: '臺北',
+    CountyName: '臺北市',
   },
   {
     cityName: '新北市',
-    locationName: '新北',
-    sunriseCityName: '新北市',
+    StationName: '板橋',
+    CountyName: '新北市',
+  },
+  {
+    cityName: '桃園市',
+    StationName: '新屋',
+    CountyName: '桃園市',
+  },
+  {
+    cityName: '臺中市',
+    StationName: '臺中',
+    CountyName: '臺中市',
+  },
+  {
+    cityName: '臺南市',
+    StationName: '臺南市南區',
+    CountyName: '臺南市',
+  },
+  {
+    cityName: '高雄市',
+    StationName: '高雄',
+    CountyName: '高雄市',
+  },
+  {
+    cityName: '基隆市',
+    StationName: '基隆',
+    CountyName: '基隆市',
+  },
+  {
+    cityName: '新竹縣',
+    StationName: '新竹',
+    CountyName: '新竹縣',
+  },
+  {
+    cityName: '新竹市',
+    StationName: '新竹市東區',
+    CountyName: '新竹市',
+  },
+  {
+    cityName: '苗栗縣',
+    StationName: '苗栗',
+    CountyName: '苗栗縣',
+  },
+  {
+    cityName: '彰化縣',
+    StationName: '彰師大',
+    CountyName: '彰化縣',
+  },
+  {
+    cityName: '南投縣',
+    StationName: '日月潭',
+    CountyName: '南投縣',
+  },
+  {
+    cityName: '雲林縣',
+    StationName: '斗六',
+    CountyName: '雲林縣',
+  },
+  {
+     cityName: '嘉義縣',
+     StationName: '阿里山',
+     CountyName: '嘉義縣',
+  },
+  {
+    cityName: '嘉義市',
+    StationName: '嘉義',
+    CountyName: '嘉義市',
+  },
+  {
+    cityName: '屏東縣',
+    StationName: '恆春',
+    CountyName: '屏東縣',
   },
 ];
 

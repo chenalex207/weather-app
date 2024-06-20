@@ -7,6 +7,9 @@ import styled from '@emotion/styled';
 // STEP 1：匯入 availableLocations
 import { availableLocations } from './utils';
 
+// STEP 2：從 availableLocations 取出 cityName 來做為讓使用者可以選擇地區的清單
+const locations = availableLocations.map((location) => location.cityName);
+
 const WeatherSettingWrapper = styled.div`
   position: relative;
   min-width: 360px;
@@ -93,18 +96,7 @@ const Save = styled.button`
   }
 `;
 
-/*
-const locations = [
-  '嘉義縣', '新北市', '嘉義市', '新竹縣', '新竹市',
-  '臺北市', '臺南市', '宜蘭縣', '苗栗縣', '雲林縣',
-  '花蓮縣', '臺中市', '臺東縣', '桃園市', '南投縣',
-  '高雄市', '金門縣', '屏東縣', '基隆市', '澎湖縣',
-  '彰化縣', '連江縣',
-];
-*/
 
-// STEP 2：從 availableLocations 取出 cityName 來做為讓使用者可以選擇地區的清單
-const locations = availableLocations.map((location) => location.cityName);
 
 // STEP 1：從 props 中取出 setCurrentPage 方法
 // STEP 1：從 props 中取出 cityName 和 setCurrentCity
@@ -156,7 +148,7 @@ const WeatherSetting = ({ setCurrentPage, cityName, setCurrentCity  }) => {
         id="location" 
         name="location" 
         onChange={handleChange}
-        value={locationName}
+        placeholder={locationName}
         
       />
       <datalist id="location-list">
